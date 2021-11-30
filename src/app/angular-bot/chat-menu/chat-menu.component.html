@@ -1,0 +1,45 @@
+<div class="row top-bar">
+  <button mat-fab [routerLink]="['/chat']" color="primary">
+    <mat-icon>close</mat-icon>
+  </button>
+  <div class="title">
+    <h3>Medagogic Simulator Help</h3>
+  </div>
+</div>
+
+<div class="help-panel">
+  <ul>
+    <li>
+      Write messages as you would communicate to the team, for example:
+      <blockquote>
+        <p><em>Please check the airway patency</em></p>
+      </blockquote>
+    </li>
+    <li>
+      Use the menu in the top right to access patient history, test results, and
+      more.
+    </li>
+    <li>
+      Work through the case as you would during a live-simulation training
+      exercise.
+    </li>
+  </ul>
+</div>
+
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h3><mat-icon>help</mat-icon>Examples</h3>
+      </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <ul>
+      <li>"Please check the airway patency"</li>
+      <li>"Perform a chin lift"</li>
+      <li>"Is the patient breathing?"</li>
+      <li>"Can we get IV access?"</li>
+    </ul>
+  </mat-expansion-panel>
+</mat-accordion>

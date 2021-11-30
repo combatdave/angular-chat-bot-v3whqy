@@ -1,0 +1,9 @@
+/* Add application styles & imports to this file! */
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: #2f323b;
+}

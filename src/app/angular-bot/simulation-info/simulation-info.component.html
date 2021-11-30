@@ -1,0 +1,70 @@
+<div class="row top-bar">
+  <div class="patient-info">
+    <h3>Exercise Info</h3>
+  </div>
+
+  <button mat-fab [routerLink]="['/chat']" color="primary">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="content">
+  <div class="patient-state">
+    <h4>Patient status</h4>
+
+    <img
+      src="https://easydrawingguides.com/wp-content/uploads/2019/12/Body-Outline-08.png"
+    />
+    <ul>
+      <li>Snoring</li>
+      <li>Sat 87%</li>
+      <li>RR 56</li>
+      <li>HR 152bpm</li>
+    </ul>
+  </div>
+
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h3><mat-icon>accessibility_new</mat-icon> Background</h3>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ul>
+        <li>4 year old girl named Greta</li>
+        <li>
+          Ambulance report: Respiratory distress, B: previously healthy, slight
+          obstructive with previous viral infections, current weight 15kg A:
+          presents with fever 39 degrees past 4 days, coughing. Past 48 hours
+          decreased intake of food and drink, hasn't peed since last night
+        </li>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h3><mat-icon>assignment</mat-icon> Tests</h3>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ul>
+        <li>Blood test: Waiting for results</li>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h3><mat-icon>perm_media</mat-icon> Media</h3>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      Here will be a grid or list of media (test results, audio, etc)
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,97 @@
+<div class="row top-bar">
+  <button
+    class="button button-outline"
+    mat-button
+    [routerLink]="['/chat-menu']"
+    color="primary"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="patient-info">
+    Greta<br />
+    4 years old
+  </div>
+
+  <button mat-fab [routerLink]="['/simulation-info']" color="primary">
+    <mat-icon>insert_chart_outlined</mat-icon>
+  </button>
+</div>
+
+<section class="chatbox">
+  <section
+    class="chat-window"
+    #chatWindow
+    [scrollTop]="chatWindow.scrollHeight"
+  >
+    <div *ngIf="messages.length == 0">
+      <h3>Starting exercise...</h3>
+    </div>
+    <ng-container *ngFor="let message of messages">
+      <article
+        class="msg-container"
+        [ngClass]="[message.author.id == 0 ? 'msg-self' : 'msg-remote']"
+      >
+        <div class="msg-box">
+          <img
+            class="user-img"
+            id="user-0"
+            src="{{ message.author.avatar }}"
+            [ngClass]="[message.author.id == 0 ? 'msg-self' : 'msg-remote']"
+          />
+          <div class="flr">
+            <div class="messages">
+              <p
+                class="msg"
+                [ngClass]="[message.author.id == 0 ? 'msg-self' : 'msg-remote']"
+              >
+                {{ message.content }}
+              </p>
+              <!-- <mat-chip-list>
+                <mat-chip>A chip</mat-chip>
+              </mat-chip-list> -->
+            </div>
+            <span
+              class="timestamp"
+              [ngClass]="[message.author.id == 0 ? 'msg-self' : 'msg-remote']"
+              ><span class="username">{{ message.author.name }}</span>
+              <!-- &bull; <span class="posttime">3 minutes ago</span> -->
+            </span>
+          </div>
+        </div>
+      </article>
+    </ng-container>
+    <div
+      class="dot-flashing"
+      *ngIf="chatService.botIsTyping == true && messages.length > 0"
+    ></div>
+  </section>
+  <div *ngIf="chatService.finished == true">
+    <button mat-raised-button [routerLink]="['/debrief']">
+      Go to debriefing
+    </button>
+  </div>
+  <form
+    class="chat-input"
+    onsubmit="return false;"
+    *ngIf="chatService.finished == false"
+  >
+    <textarea
+      id="chat-text-input"
+      type="text"
+      autocomplete="off"
+      placeholder="Type a message"
+      (keyup)="keyDownFunction($event)"
+      oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+      readonly
+    ></textarea>
+    <button (click)="sendMessage()" id="chat-send-button">
+      <svg style="width:36px;height:36px" viewBox="-6 -6 36 36">
+        <path
+          fill="rgba(0,0,0,.38)"
+          d="M17,12L12,17V14H8V10H12V7L17,12M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z"
+        />
+      </svg>
+    </button>
+  </form>
+</section>
